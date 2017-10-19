@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+		    <h1 class="mui-title">复选</h1>
+		</header>
+		<div class="mui-content">
+		    <div class="mui-input-row mui-checkbox ">
+		        <label>人生</label>
+		        <input name="Checkbox" type="checkbox" class="che" value="1">
+		    </div>
+		    <div class="mui-input-row mui-checkbox ">
+		        <label>若</label>
+		        <input name="Checkbox" type="checkbox" class="che"  value="2">
+		    </div>
+		    <div class="mui-input-row mui-checkbox ">
+		        <label>只如</label>
+		        <input name="Checkbox" type="checkbox" class="che" value="3">
+		    </div>
+		    <div class="mui-input-row mui-checkbox ">
+		        <label>初见</label>
+		        <input name="Checkbox" type="checkbox" class="che" value="4">
+		    </div>
+		    <button type="button" class="mui-btn mui-btn-blue" id="submit">提交</button>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			
+			window.onload=function(){
+				var aInput=document.querySelectorAll('.che');
+				var oBtn=document.querySelector('#submit');
+				oBtn.addEventListener('tap',function(){
+					//var all=null;
+					var check=new Array;
+					for (var i=0;i<aInput.length;i++) {
+						if(aInput[i].checked){
+							/*all=aInput[i].value;
+							check[i]=all;*/
+							check.push(aInput[i].value);
+						}
+						
+					}
+					if(check.length==0){
+					mui.toast('请选择');
+					return;
+					}
+					mui.toast(check);
+				})
+			}
+		</script>
+	</body>
+
+</html>

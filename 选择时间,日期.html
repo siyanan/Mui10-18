@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">时间选择器</h1>
+		</header>
+		<div class="mui-content">
+			<button type="button" class="mui-btn mui-btn-blue mui-btn-block" id="time">选择时间</button>
+			<button type="button" class="mui-btn mui-btn-blue mui-btn-block" id="date">选择日期</button>
+
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+
+			window.onload = function() {
+				mui.plusReady(function() {
+					var dDate = document.getElementById('date');
+
+					dDate.addEventListener('tap', function() {
+						//设置默认日期
+						var oDate = new Date();
+						oDate.setFullYear(2017, 9, 18);
+
+						//设置最小时间
+						var minDate = new Date();
+						minDate.setFullYear(2010, 0, 1);
+
+						//设置最大时间
+						var maxDate = new Date();
+						maxDate.setFullYear(2020, 1, 1);
+
+						plus.nativeUI.pickDate(function(e) {
+
+						}, function() {
+
+						}, {
+							title: '请你选择日期',
+							date: oDate,
+							minDate: minDate,
+							maxDate: maxDate
+
+						})
+					});
+				})
+
+
+					
+
+					document.getElementById('time').addEventListener('tap', function() {
+						
+						var dTime = new Date();
+						
+						//设置默认时间
+						dTime.setHours(6, 0);
+
+						plus.nativeUI.pickTime(function(e) {
+							var d = e.date;
+							mui.toast("您选择的时间是：" + d.getHours() + ":" + d.getMinutes());
+
+						}, function() {
+							mui.toast("您没有选择时间");
+						}, {
+							title: '请你选择日期',
+							is24Hour: true,
+							time: dTime
+						})
+					});
+			};
+		</script>
+	</body>
+
+</html>
