@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">遮罩蒙版</h1>
+		</header>
+		<div class="mui-content">
+
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			var mask = mui.createMask(callback); //callback为用户点击蒙版时自动执行的回调；
+			mask.show(); //显示遮罩
+			mask.close(); //关闭遮罩
+		</script>
+	</body>
+
+</html>
